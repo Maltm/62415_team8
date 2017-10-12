@@ -9,13 +9,15 @@
         android:id="@+id/imageView"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        app:srcCompat="@drawable/square" />
+        app:srcCompat="@drawable/square"
+        android:tint="#42bfb4"/>
+
 
     <TextView
         android:id="@+id/cell_textView"
         android:layout_width="347dp"
         android:layout_height="24dp"
         android:text="TextView"
-        android:textSize="16dp"/>
+        android:textSize="16dp" />
 
 </LinearLayout>
