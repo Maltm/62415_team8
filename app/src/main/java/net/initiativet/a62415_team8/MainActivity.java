@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ProposalDAO propDAO = new ProposalDAO();
     ListView listView;
     List<ProposalDTO> propList = new ArrayList<ProposalDTO>();
+    List<String> testList = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,27 +42,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                setButtons();
+                for(int i = 0; i < propList.size(); i++) {
+                    testList.add(propList.get(i).getNummer() + " : " + propList.get(i).getTitel());
+                }
+
+                ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, R.layout.list_cell, R.id.cell_textView, testList); //<- insert array list
+                listView.setAdapter(adapter);
             }
         }.execute();
 
 
-
-// TEMPORARY ARRAYLIST FOR TESTING LISTVIEW
-       List<String> testList = new ArrayList<String>();
-        testList.add("Burned");
-        testList.add("Spaghetti");
-        testList.add("powerbank");
-        testList.add("ouch! ");
-        for(int i = 0; i < propList.size(); i++){
-            testList.add("proplist " + i);
-        }
-
-//SETTING LIST VIEW UP.
-        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_cell, R.id.cell_textView, testList); //<- insert array list
-//        listView.setOnClickListener(this);
-        listView.setAdapter(adapter);
-
+        //42bfb4 <----- COLOR
     }
 
 
