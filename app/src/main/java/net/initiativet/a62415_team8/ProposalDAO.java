@@ -30,11 +30,13 @@ public class ProposalDAO {
             int valueID = jsonValue.getInt("id");
             String valueTitel = jsonValue.getString("titel");
             String valueResume = jsonValue.getString("resume");
+            String valueNummer = jsonValue.getString("nummer");
 
             ProposalDTO tmpProp = new ProposalDTO();
             tmpProp.setID(valueID);
             tmpProp.setTitel(valueTitel);
             tmpProp.setResume(valueResume);
+            tmpProp.setNummer(valueNummer);
 
             allProposals.add(tmpProp);
         }

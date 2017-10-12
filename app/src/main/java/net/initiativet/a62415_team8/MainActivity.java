@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 // TEMPORARY ARRAYLIST FOR TESTING LISTVIEW
-        List<String> testList = new ArrayList<String>();
+       List<String> testList = new ArrayList<String>();
         testList.add("Burned");
         testList.add("Spaghetti");
         testList.add("powerbank");
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //SETTING LIST VIEW UP.
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_cell, R.id.cell_textView, testList); //<- insert array list
-    //    listView.setOnClickListener(this);
+//        listView.setOnClickListener(this);
         listView.setAdapter(adapter);
 
     }

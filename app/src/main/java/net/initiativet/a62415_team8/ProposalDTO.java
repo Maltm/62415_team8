@@ -9,6 +9,7 @@ public class ProposalDTO {
     int id;
     String titel;
     String resume;
+    String nummer;
 
     public void setID(int id) {
         this.id = id;
@@ -33,4 +34,8 @@ public class ProposalDTO {
     public String getResume() {
         return resume;
     }
+
+    public String getNummer() {return  nummer;}
+
+    public void setNummer(String nummer) {this.nummer = nummer;}
 }
