@@ -14,8 +14,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    LinearLayout propContainer;
-    Button[] propButton;
     ProposalDAO propDAO = new ProposalDAO();
     ListView listView;
     List<ProposalDTO> propList = new ArrayList<ProposalDTO>();
@@ -24,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        propContainer = (LinearLayout) findViewById(R.id.proposalContainer);
         listView = (ListView) findViewById(R.id.listView_lov);
 
         new AsyncTask<Object, Object, Void>() {
@@ -32,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             protected Void doInBackground(Object... params) {
                 try {
                     propList = propDAO.fetchProposal();
-                    propButton = new Button[propList.size()];
                 }catch (Exception e) {
                     System.out.println(e.toString());
                 }
@@ -60,15 +56,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
     }
-    public void setButtons() {
-        for(int i = 0; i<propList.size(); i++) {
-            propButton[i] = new Button(this);
-            propButton[i].setText(propList.get(i).getTitel());
-            propButton[i].setTag(propList.get(i).getId());
-            propButton[i].setOnClickListener(this);
 
-            propContainer.addView(propButton[i]);
-        }
-
-    }
 }
