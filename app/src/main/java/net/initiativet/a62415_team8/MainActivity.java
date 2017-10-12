@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        listView.setOnClickListener(this);
         listView.setAdapter(adapter);
 
+
+        //42bfb4 <----- COLOR
     }
 
 
