@@ -1,9 +1,11 @@
 package net.initiativet.a62415_team8;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Udvalgte forslag");
         listView = (ListView) findViewById(R.id.listView_lov);
 
         new AsyncTask<Object, Object, Void>() {
@@ -44,11 +47,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, R.layout.list_cell, R.id.cell_textView, testList); //<- insert array list
                 listView.setAdapter(adapter);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                        Intent i = new Intent(view.getContext(), DetailSreen.class);
+                        i.putExtra("title", propList.get(position).getTitel());
+                        i.putExtra("nummer", propList.get(position).getNummer());
+                        i.putExtra("resume", propList.get(position).getResume());
+                        startActivity(i);
+                    }
+                });
             }
         }.execute();
-
-
-        //42bfb4 <----- COLOR
     }
 
 

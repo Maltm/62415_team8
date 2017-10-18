@@ -20,7 +20,8 @@
         </activity>
         <activity
             android:name=".ProposalActivity"
-            android:label="@string/title_activity_proposal"></activity>
+            android:label="@string/title_activity_proposal" />
+        <activity android:name=".DetailSreen"></activity>
     </application>
 
 </manifest>
