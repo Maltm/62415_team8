@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView titleTV = (TextView) findViewById(R.id.actionbar_title);
+        titleTV.setText("Udvalgte forslag");
+
+
         setTitle("Udvalgte forslag");
         listView = (ListView) findViewById(R.id.listView_lov);
 

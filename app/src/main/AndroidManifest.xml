@@ -19,9 +19,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProposalActivity"
-            android:label="@string/title_activity_proposal" />
-        <activity android:name=".DetailSreen"></activity>
+            android:name=".DetailSreen"
+            android:parentActivityName=".MainActivity" />
+
     </application>
 
 </manifest>
