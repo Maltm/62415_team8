@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ProposalDAO propDAO = new ProposalDAO();
     ListView listView;
     List<ProposalDTO> propList = new ArrayList<ProposalDTO>();
-    List<String> testList = new ArrayList<String>();
+    List<String> titleList = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
                 for(int i = 0; i < propList.size(); i++) {
-                    testList.add(propList.get(i).getNummer() + " : " + propList.get(i).getTitel());
+                    titleList.add(propList.get(i).getNummer() + " : " + propList.get(i).getTitel());
                 }
 
-                ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, R.layout.list_cell, R.id.cell_textView, testList); //<- insert array list
+                ArrayAdapter adapter = new ArrayAdapter(MainActivity.this, R.layout.list_cell, R.id.cell_textView, titleList); //<- insert array list
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
