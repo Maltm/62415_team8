@@ -1,9 +1,7 @@
 package net.initiativet.a62415_team8;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.TextureView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -20,7 +18,7 @@ public class DetailSreen extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_sreen);
+        setContentView(R.layout.activity_detail_screen);
         nummer = getIntent().getStringExtra("nummer");
         title = getIntent().getStringExtra("title");
         resume = getIntent().getStringExtra("resume");
@@ -38,6 +36,7 @@ public class DetailSreen extends AppCompatActivity implements View.OnClickListen
         titleTextView.setText(nummer +  " " + title);
         resumeTextView.setText(resume);
         System.out.print("title");
+
     }
 
     @Override
