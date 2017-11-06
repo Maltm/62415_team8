@@ -10,6 +10,9 @@ public class ProposalDTO {
     String titel;
     String resume;
     String nummer;
+    String nummerPrefix;
+    String nummernumerisk;
+    String nummerpostfix;
 
     public void setID(int id) {
         this.id = id;
@@ -38,4 +41,16 @@ public class ProposalDTO {
     public String getNummer() {return  nummer;}
 
     public void setNummer(String nummer) {this.nummer = nummer;}
+
+    public String getNummerPrefix() {return nummerPrefix;}
+
+    public void setNummerPrefix(String nummerPrefix) {this.nummerPrefix = nummerPrefix;}
+
+    public String getNummernumerisk() {return nummernumerisk;}
+
+    public void setNummernumerisk(String nummernumerisk) {this.nummernumerisk = nummernumerisk;}
+
+    public String getNummerpostfix() {return nummerpostfix;}
+
+    public void setNummerpostfix(String nummerpostfix) {this.nummerpostfix = nummerpostfix;}
 }

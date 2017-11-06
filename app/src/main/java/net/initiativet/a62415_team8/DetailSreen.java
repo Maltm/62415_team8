@@ -48,8 +48,8 @@ public class DetailSreen extends AppCompatActivity implements View.OnClickListen
         resumeTextView = (TextView) findViewById(R.id.detail_resume);
         ftLink = (TextView) findViewById(R.id.ftLink);
 
-        ftLink.setText("For flere detajler se link: ");
-
+        ftLink.setText("For flere detajler se link: " + "http://ft.dk/samling/$20171/$" );
+        //http://www.ft.dk/samling/${proposal.Periode.kode}/${proposal.Sagstype.type}/${proposal.nummerprefix + proposal.nummernumerisk + proposal.nummerpostfix}/index.htm
         titleTextView.setText(nummer +  " " + title);
         resumeTextView.setText(resume);
         System.out.print("title");

@@ -33,13 +33,16 @@ public class ProposalDAO {
             String valueNummer = jsonValue.getString("nummer");
             String valueNummerPrefix = jsonValue.getString("nummerprefix");
             String valueNummerPostfix = jsonValue.getString("nummerprofix");
-            String valueNummerisk = jsonValue.getString("nummerisk");
+            String valueNummerisk = jsonValue.getString("nummernumerisk");
 
             ProposalDTO tmpProp = new ProposalDTO();
             tmpProp.setID(valueID);
             tmpProp.setTitel(valueTitel);
             tmpProp.setResume(valueResume);
             tmpProp.setNummer(valueNummer);
+            tmpProp.setNummerPrefix(valueNummerPrefix);
+            tmpProp.setNummernumerisk(valueNummerisk);
+            tmpProp.setNummerpostfix(valueNummerPostfix);
 
             allProposals.add(tmpProp);
         }
