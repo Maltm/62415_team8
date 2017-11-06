@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity{
 
     ProposalDAO propDAO = new ProposalDAO();
     ListView listView;
@@ -62,18 +62,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         i.putExtra("resume", propList.get(position).getResume());
                         i.putExtra("nummerPrefix", propList.get(position).getNummerPrefix());
                         i.putExtra("nummerPostfix", propList.get(position).getNummerpostfix());
-                        i.putExtra("nummerisk", propList.get(position).getNummernumerisk());
+                        i.putExtra("nummernumerisk", propList.get(position).getNummernumerisk());
                         startActivity(i);
                     }
                 });
             }
         }.execute();
     }
-
-
-    @Override
-    public void onClick(View v) {
-
-    }
-
 }

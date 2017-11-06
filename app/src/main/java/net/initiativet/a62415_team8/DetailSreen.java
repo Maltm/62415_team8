@@ -17,7 +17,7 @@ public class DetailSreen extends AppCompatActivity implements View.OnClickListen
     String nummer = "";
     String nummerPrefix = "";
     String nummerPostFix = "";
-    String nummerisk = "";
+    String nummernumerisk = "";
 
     String url = "";
     TextView titleTextView;
@@ -34,7 +34,7 @@ public class DetailSreen extends AppCompatActivity implements View.OnClickListen
         resume = getIntent().getStringExtra("resume");
         nummerPrefix = getIntent().getStringExtra("nummerPrefix");
         nummerPostFix = getIntent().getStringExtra("nummerPostfix");
-        nummerisk = getIntent().getStringExtra("nummerisk");
+        nummernumerisk = getIntent().getStringExtra("nummernumerisk");
 
         TextView titleTV = (TextView) findViewById(R.id.actionbar_title);
         titleTV.setText(nummer);
@@ -55,8 +55,9 @@ public class DetailSreen extends AppCompatActivity implements View.OnClickListen
         resumeTextView = (TextView) findViewById(R.id.detail_resume);
         ftLink = (TextView) findViewById(R.id.ftLink);
 
-        ftLink.setText("For flere detajler se link: " + "http://ft.dk/samling/$20171/$" );
-        //http://www.ft.dk/samling/${proposal.Periode.kode}/${proposal.Sagstype.type}/${proposal.nummerprefix + proposal.nummernumerisk + proposal.nummerpostfix}/index.htm
+        String ftLinkURL = "http://www.ft.dk/samling/20171/Lovforslag/" + nummerPrefix  + nummernumerisk + nummerPostFix + "/index.htm";
+
+        ftLink.setText("For flere detajler se link: " + ftLinkURL);
         titleTextView.setText(nummer +  " " + title);
         resumeTextView.setText(resume);
         System.out.print("title");

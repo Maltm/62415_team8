@@ -32,7 +32,7 @@ public class ProposalDAO {
             String valueResume = jsonValue.getString("resume");
             String valueNummer = jsonValue.getString("nummer");
             String valueNummerPrefix = jsonValue.getString("nummerprefix");
-            String valueNummerPostfix = jsonValue.getString("nummerprofix");
+            String valueNummerPostfix = jsonValue.getString("nummerpostfix");
             String valueNummerisk = jsonValue.getString("nummernumerisk");
 
             ProposalDTO tmpProp = new ProposalDTO();
