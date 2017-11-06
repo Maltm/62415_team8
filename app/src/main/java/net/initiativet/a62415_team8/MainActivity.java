@@ -60,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         i.putExtra("title", propList.get(position).getTitel());
                         i.putExtra("nummer", propList.get(position).getNummer());
                         i.putExtra("resume", propList.get(position).getResume());
+                        i.putExtra("nummerPrefix", propList.get(position).getNummerPrefix());
+                        i.putExtra("nummerPostfix", propList.get(position).getNummerpostfix());
+                        i.putExtra("nummerisk", propList.get(position).getNummernumerisk());
                         startActivity(i);
                     }
                 });

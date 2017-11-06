@@ -15,6 +15,10 @@ public class DetailSreen extends AppCompatActivity implements View.OnClickListen
     String title = "";
     String resume = "";
     String nummer = "";
+    String nummerPrefix = "";
+    String nummerPostFix = "";
+    String nummerisk = "";
+
     String url = "";
     TextView titleTextView;
     TextView resumeTextView;
@@ -28,6 +32,9 @@ public class DetailSreen extends AppCompatActivity implements View.OnClickListen
         nummer = getIntent().getStringExtra("nummer");
         title = getIntent().getStringExtra("title");
         resume = getIntent().getStringExtra("resume");
+        nummerPrefix = getIntent().getStringExtra("nummerPrefix");
+        nummerPostFix = getIntent().getStringExtra("nummerPostfix");
+        nummerisk = getIntent().getStringExtra("nummerisk");
 
         TextView titleTV = (TextView) findViewById(R.id.actionbar_title);
         titleTV.setText(nummer);
