@@ -31,6 +31,9 @@ public class ProposalDAO {
             String valueTitel = jsonValue.getString("titel");
             String valueResume = jsonValue.getString("resume");
             String valueNummer = jsonValue.getString("nummer");
+            String valueNummerPrefix = jsonValue.getString("nummerprefix");
+            String valueNummerPostfix = jsonValue.getString("nummerprofix");
+            String valueNummerisk = jsonValue.getString("nummerisk");
 
             ProposalDTO tmpProp = new ProposalDTO();
             tmpProp.setID(valueID);
