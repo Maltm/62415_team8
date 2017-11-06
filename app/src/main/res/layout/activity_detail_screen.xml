@@ -54,6 +54,18 @@
                 android:text="TextView"
                 android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/ftLink"
+                android:background="#FFFFFF"
+                android:paddingBottom="8dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="14sp"/>
+
             <Button
                 android:id="@+id/propAsProposed"
                 android:layout_width="match_parent"
