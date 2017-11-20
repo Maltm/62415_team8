@@ -14,37 +14,58 @@ import java.util.List;
 
 public class ProposalDAO {
     apiRequest apiReq = new apiRequest();
-    String predefinedAPIURL = "http://oda.ft.dk/api/Sag?&$filter=typeid eq 3";
 
-    public List<ProposalDTO> fetchProposal() throws IOException, JSONException {
+    public List<ProposalDTO> fetchProposal(String requestURL) throws IOException, JSONException {
         List<ProposalDTO> allProposals = new ArrayList<ProposalDTO>();
+        ProposalDTO tmpProp;
 
+        String tmp = apiReq.request(requestURL);
+        JSONObject json;
+        String nextURL;
+        JSONArray value;
+        String valueTitel;
+        String valueResume;
+        String valueNummer;
+        String valueNummerPrefix;
+        String valueNummerPostfix;
+        String valueNummerisk;
 
-        String tmp = apiReq.request(predefinedAPIURL);
-        JSONObject json = new JSONObject(tmp);
+        int valueID;
+        while(true) {
+            json = new JSONObject(tmp);
+            try {
+                nextURL = json.getString("odata.nextLink");
+            }catch (Exception e) {
+                System.out.println(e.toString());
+                break;
+            }
 
-        JSONArray value = json.getJSONArray("value");
+            value = json.getJSONArray("value");
 
-        for(int i = 0; i < value.length(); i++) {
-            JSONObject jsonValue = value.getJSONObject(i);
-            int valueID = jsonValue.getInt("id");
-            String valueTitel = jsonValue.getString("titel");
-            String valueResume = jsonValue.getString("resume");
-            String valueNummer = jsonValue.getString("nummer");
-            String valueNummerPrefix = jsonValue.getString("nummerprefix");
-            String valueNummerPostfix = jsonValue.getString("nummerpostfix");
-            String valueNummerisk = jsonValue.getString("nummernumerisk");
+            for(int i = 0; i < value.length(); i++) {
+                JSONObject jsonValue = value.getJSONObject(i);
+                valueID = jsonValue.getInt("id");
+                valueTitel = jsonValue.getString("titel");
+                valueResume = jsonValue.getString("resume");
+                valueNummer = jsonValue.getString("nummer");
+                valueNummerPrefix = jsonValue.getString("nummerprefix");
+                valueNummerPostfix = jsonValue.getString("nummerpostfix");
+                valueNummerisk = jsonValue.getString("nummernumerisk");
 
-            ProposalDTO tmpProp = new ProposalDTO();
-            tmpProp.setID(valueID);
-            tmpProp.setTitel(valueTitel);
-            tmpProp.setResume(valueResume);
-            tmpProp.setNummer(valueNummer);
-            tmpProp.setNummerPrefix(valueNummerPrefix);
-            tmpProp.setNummernumerisk(valueNummerisk);
-            tmpProp.setNummerpostfix(valueNummerPostfix);
+                tmpProp = new ProposalDTO();
+                tmpProp.setID(valueID);
+                tmpProp.setTitel(valueTitel);
+                tmpProp.setResume(valueResume);
+                tmpProp.setNummer(valueNummer);
+                tmpProp.setNummerPrefix(valueNummerPrefix);
+                tmpProp.setNummernumerisk(valueNummerisk);
+                tmpProp.setNummerpostfix(valueNummerPostfix);
 
-            allProposals.add(tmpProp);
+                allProposals.add(tmpProp);
+
+            }
+
+            tmp = apiReq.request(nextURL);
         }
         return allProposals;
     }

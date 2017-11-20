@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             protected Void doInBackground(Object... params) {
                 try {
-                    propList = propDAO.fetchProposal();
+                    propList = propDAO.fetchProposal("http://oda.ft.dk/api/Sag?&$filter=typeid eq 3 and periodeid eq 146");
                 }catch (Exception e) {
                     System.out.println(e.toString());
                 }
