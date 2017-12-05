@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity
         backButton.setOnClickListener(this);
         backButtonActivated = false;
 
-        setTitle("Udvalgte forslag");
         new AsyncTask<Object, Object, Void>() {
             @Override
             protected Void doInBackground(Object... params) {
@@ -116,6 +115,7 @@ public class MainActivity extends AppCompatActivity
                 getSupportFragmentManager().popBackStack();
                 backButtonActivated = false;
                 backButton.setBackgroundResource(R.drawable.map);
+                titleTV.setText("Udvalgte forslag");
             }
         }
     }
