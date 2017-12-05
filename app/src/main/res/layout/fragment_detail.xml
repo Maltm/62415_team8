@@ -3,44 +3,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/custom_action_bar"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp" />
-
-    <TextView
-        android:id="@+id/detail_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="bold"/>
 
     <android.support.v4.widget.NestedScrollView
-        android:id="@+id/nestedScrollView2"
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="2dp"
-        android:fillViewport="true"
-        android:layout_weight="100">
+        android:layout_weight="100"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+            <TextView
+                android:id="@+id/detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="TextView"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/detail_resume"
@@ -56,16 +48,16 @@
 
             <TextView
                 android:id="@+id/ftLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
                 android:background="#FFFFFF"
                 android:paddingBottom="8dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:paddingTop="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="14sp"
-                android:autoLink="web"/>
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/propAsProposed"
