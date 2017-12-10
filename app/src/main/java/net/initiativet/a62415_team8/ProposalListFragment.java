@@ -12,12 +12,12 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class LovforslagList extends Fragment {
+public class ProposalListFragment extends Fragment {
 
-    private OnLovforslagListInteractionListener mListener;
+    private OnProposalListInteractionListener mListener;
     ListView list;
 
-    public LovforslagList() {
+    public ProposalListFragment() {
         // Required empty public constructor
     }
 
@@ -33,7 +33,7 @@ public class LovforslagList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_lovforslag_list, container, false);
+        View v = inflater.inflate(R.layout.fragment_proposal_list, container, false);
         list = (ListView)v.findViewById(R.id.table);
 
         ArrayList<String> mainArguement = getArguments().getStringArrayList("titleList");
@@ -44,7 +44,7 @@ public class LovforslagList extends Fragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                mListener.onLovforslagListInteraction(position);
+                mListener.onProposalListInteraction(position);
             }
         });
         return v;
@@ -53,11 +53,11 @@ public class LovforslagList extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnLovforslagListInteractionListener) {
-            mListener = (OnLovforslagListInteractionListener) context;
+        if (context instanceof OnProposalListInteractionListener) {
+            mListener = (OnProposalListInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnLovforslagListInteractionListener");
+                    + " must implement OnProposalListInteractionListener");
         }
     }
 
@@ -67,8 +67,7 @@ public class LovforslagList extends Fragment {
         mListener = null;
     }
 
-    public interface OnLovforslagListInteractionListener {
-        // TODO: Update argument type and name
-        void onLovforslagListInteraction(int position);
+    public interface OnProposalListInteractionListener {
+        void onProposalListInteraction(int position);
     }
 }

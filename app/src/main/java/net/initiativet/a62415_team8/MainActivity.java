@@ -1,25 +1,19 @@
 package net.initiativet.a62415_team8;
 
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-       implements LovforslagList.OnLovforslagListInteractionListener, DetailFragment.OnDetailFragmentInteractionListener, View.OnClickListener {
+       implements ProposalListFragment.OnProposalListInteractionListener, DetailFragment.OnDetailFragmentInteractionListener, View.OnClickListener {
 
     ProposalDAO propDAO = new ProposalDAO();
     List<ProposalDTO> propList = new ArrayList<ProposalDTO>();
@@ -28,6 +22,7 @@ public class MainActivity extends AppCompatActivity
     ImageButton backButton;
     Boolean backButtonActivated;
 
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +55,7 @@ public class MainActivity extends AppCompatActivity
                 }
 
                 if(savedInstanceState == null){
-                    LovforslagList lfl = new LovforslagList();
+                    ProposalListFragment lfl = new ProposalListFragment();
 
                     Bundle bundle = new Bundle();
                     bundle.putStringArrayList("titleList",titleList);
@@ -79,7 +74,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onLovforslagListInteraction(int position) {
+    public void onProposalListInteraction(int position) {
 
         titleTV.setText(propList.get(position).getNummer());
 

@@ -36,7 +36,6 @@ public class ProposalDAO {
             try {
                 nextURL = json.getString("odata.nextLink");
             }catch (Exception e) {
-                System.out.println(e.toString());
                 break;
             }
 
