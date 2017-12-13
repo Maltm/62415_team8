@@ -1,6 +1,5 @@
 package net.initiativet.a62415_team8;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 
 public class DetailFragment extends Fragment implements View.OnClickListener {
 
-    int id = 0;
     String title = "";
     String resume = "";
     String nummer = "";
@@ -23,13 +21,10 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
     String nummernumerisk = "";
 
     String url = "";
-    TextView titleTextView;
     TextView resumeTextView;
     TextView ftLink;
     ImageButton backButton;
     Button propAsProposed, propAsAdopted, goToVote;
-    private OnDetailFragmentInteractionListener mListener;
-
     public DetailFragment() {
         // Required empty public constructor
     }
@@ -74,23 +69,6 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
         return v;
     }
 
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnDetailFragmentInteractionListener) {
-            mListener = (OnDetailFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnDetailFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
     @Override
     public void onClick(View view) {

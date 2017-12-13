@@ -24,6 +24,7 @@ public class ProposalDAO {
         String nextURL;
         JSONArray value;
         String valueTitel;
+        String valueTitelKort;
         String valueResume;
         String valueNummer;
         String valueNummerPrefix;
@@ -45,6 +46,7 @@ public class ProposalDAO {
                 JSONObject jsonValue = value.getJSONObject(i);
                 valueID = jsonValue.getInt("id");
                 valueTitel = jsonValue.getString("titel");
+                valueTitelKort = jsonValue.getString("titelkort");
                 valueResume = jsonValue.getString("resume");
                 valueNummer = jsonValue.getString("nummer");
                 valueNummerPrefix = jsonValue.getString("nummerprefix");
@@ -54,6 +56,7 @@ public class ProposalDAO {
                 tmpProp = new ProposalDTO();
                 tmpProp.setID(valueID);
                 tmpProp.setTitel(valueTitel);
+                tmpProp.setTitelKort(valueTitelKort);
                 tmpProp.setResume(valueResume);
                 tmpProp.setNummer(valueNummer);
                 tmpProp.setNummerPrefix(valueNummerPrefix);

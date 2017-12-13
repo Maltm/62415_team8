@@ -8,6 +8,7 @@ public class ProposalDTO {
 
     int id;
     String titel;
+    String titelKort;
     String resume;
     String nummer;
     String nummerPrefix;
@@ -29,6 +30,10 @@ public class ProposalDTO {
     public String getTitel() {
         return titel;
     }
+
+    public void setTitelKort(String titelKort) {this.titelKort = titelKort;}
+
+    public String getTitelKort() {return titelKort;}
 
     public void setResume(String resume) {
         this.resume = resume;

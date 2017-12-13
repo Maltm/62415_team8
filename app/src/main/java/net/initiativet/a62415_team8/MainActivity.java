@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
                 for(int i = 0; i < propList.size(); i++) {
-                    titleList.add(propList.get(i).getNummer() + " : " + propList.get(i).getTitel());
+                    titleList.add(propList.get(i).getNummer() + " : " + propList.get(i).getTitelKort());
                 }
 
                 if(savedInstanceState == null){
@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity
 
         Bundle bundle = new Bundle();
         bundle.putString("title", propList.get(position).getTitel());
+        bundle.putString("titleKort", propList.get(position).getTitelKort());
         bundle.putString("nummer", propList.get(position).getNummer());
         bundle.putString("resume", propList.get(position).getResume());
         bundle.putString("nummerPrefix", propList.get(position).getNummerPrefix());
